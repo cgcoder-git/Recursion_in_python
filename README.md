@@ -1,5 +1,5 @@
-# Recursion_in_python
-coding problems in python
+# Recursion in programming in python
+Let’s take a deep dive into recursion — what it is, why it’s useful, 5 of the easiest examples, its benefits, and how to calculate time complexity using a recursion tree diagram.
 
 ## What is Recursion? 
 "**Recursion** is a programming technique where a **function calls itself**",to solve smaller instances of a problem until it reaches a base case that can be solved directly.
