@@ -57,21 +57,77 @@ print(odd(5))   # Output: True
 ```
 
 ### Head Recursion
-
+The recursive call happens before other processing. recursive call is made first, and the actual work is done after the recursive call returns.
 **Example**
+```python
+def head_recursion(s, i):
+    if i >= len(s):
+        return
+    head_recursion(s, i + 1) # call 
+    print(s[i], end="") # actual work 
+
+string = "Hello"
+i = 0
+head_recursion(string,i)
+#output : olleh
+```
 
 ### Tail Recursion
-
+The recursive call is the last statement. Nothing happens after the call.
 **Example**
+```python
+def tail_recursion(s, i):
+    if i < 0:
+        return
+    print(s[i], end="")
+    tail_recursion(s, i - 1)
+
+string = "Hello"
+i = len(string)-1
+tail_recursion(string,i)
+```
 
 ### Tree Recursion
-
+A recursive function is said to be tree-recursive if it makes more than one recursive call per invocation.
 **Example**
+```python
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n - 1) + fib(n - 2)
+
+print(fib(5))  # Output: 5
+```
+**Calls made**
+```python
+             fib(4)
+           /        \
+      fib(3)        fib(2)
+     /     \        /     \
+ fib(2)   fib(1)  fib(1)  fib(0)
+ /   \
+fib(1) fib(0)
+
+```
 
 ### Liner Recursion
-
+A recursive function is linear if it makes at most one recursive call each time it executes, That means the call stack grows in a straight line — like a linked list, not a tree.
 **Example**
-
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+factorial(3) # output: 6
+```
+**calls**
+```python
+factorial(3)
+→ 3 * factorial(2)
+     → 2 * factorial(1)
+          → 1 * factorial(0)
+               → returns 1
+```
 
 ## Lets understand with simple problem :
 - factorial of a number
