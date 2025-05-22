@@ -118,21 +118,23 @@ def factorial(n):
     if n == 0:
         return 1
     return n * factorial(n - 1)
-factorial(3) # output: 6
+factorial(4) # output: 24
 ```
 **calls**
 ```python
-factorial(3)
-→ 3 * factorial(2)
-     → 2 * factorial(1)
-          → 1 * factorial(0)
-               → returns 1
+factorial(4)
+    → 4 * factorial(3)
+        → 3 * factorial(2)
+             → 2 * factorial(1)
+                  → 1 * factorial(0)
+                       → returns 1
 ```
 
-## Lets understand with simple problem :
+**How it goes to stack**
 - factorial of a number
-
 <img width="488" alt="Screenshot 2025-05-22 at 12 32 00 AM" src="https://github.com/user-attachments/assets/b46a6c97-5769-4617-a989-fb36047be1ce" />
+
+when return happends each results are taken from the stack and accumulate the final result.
 
 
 
