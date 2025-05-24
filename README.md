@@ -136,6 +136,47 @@ factorial(4)
 
 when return happends each results are taken from the stack and accumulate the final result.
 
+### Types of Recursion Question
+1. Take/Not Take Question type
+2. Pick every option (Permutation / Backtracking)
+3. Index-based Movement
+4. Aggregation
+5. Partitioning (Palindromes, Substrings)
+6. and many more
+
+#### Take/Not Take Question Types:
+You either include (take) the current element or exclude (not take) it.
+If you take the element you append it to the data structure, and increase the indexing, but if you dont want to take it, if already appended remove it, if not do not consider and increase the index.
+
+Example : 
+Question : https://leetcode.com/problems/combination-sum/description/
+Code : 
+```python
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        res = []
+        def search_target_sum(arr, index, target, result, current_sum, res):
+            if index >= len(arr):
+                return
+
+            if current_sum == target:
+                res.append(result[:])
+                return
+
+            if current_sum > target:
+                return
+
+            # take same value
+            result.append(arr[index])
+            search_target_sum(arr, index, target, result, current_sum + arr[index], res)
+
+            # not take (already appened, so remove it)
+            result.pop()
+            search_target_sum(arr, index + 1, target, result, current_sum, res)
+        
+        search_target_sum(candidates, 0, target, [], 0, res)
+        return res
+```
 
 
 
