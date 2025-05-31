@@ -150,7 +150,7 @@ If you take the element you append it to the data structure, and increase the in
 
 Example : 
 Question : https://leetcode.com/problems/combination-sum/description/
-Code : 
+- Code : 
 ```python
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -177,6 +177,41 @@ class Solution:
         search_target_sum(candidates, 0, target, [], 0, res)
         return res
 ```
+Problems like Subsequences of a String, Subsets of an Array (All possible subsets), 0/1 Knapsack (Classic DP Problem),Combination Sum (Unlimited pick of elements) can be solved using this approach.
+
+#### Pick Every Option (Permutation / Backtracking)
+Try each possibility at the current step, recursively explore deeper, and then backtrack.
+
+**Question**: 
+https://leetcode.com/problems/combination-sum-ii/
+- Code:
+  
+```python
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        candidates.sort()
+        res = []
+        inter_result = []
+        def find_sum(target, index, inter_result):
+            if target < 0:
+                return
+            
+            if target == 0:
+                res.append(inter_result)
+                return
+
+            for idx in range(index, len(candidates)):
+                if idx > index and candidates[idx] == candidates[idx-1]:
+                    continue
+                if candidates[idx] > target:
+                    break
+                
+                find_sum(target - candidates[idx], idx+1, inter_result + [candidates[idx]])
+        
+        find_sum(target, 0, inter_result)
+        return res
+```
+
 
 
 
